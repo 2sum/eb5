@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EB-5 Writ of Mandamus | Investor FAQ</title>
+    <title>EB-5 Writ of Mandamus | Comprehensive FAQ</title>
     <style>
         :root {
             --primary: #1a365d;
@@ -32,29 +32,32 @@
 
         .header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .header h1 {
             color: var(--primary);
             font-size: 2.2rem;
-            margin-bottom: 15px;
-            letter-spacing: -0.02em;
+            margin-bottom: 10px;
         }
 
-        .header p {
+        .section-title {
             color: var(--text-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin: 40px 0 15px 10px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
         }
 
-        /* FAQ Styling */
         .faq-section {
             background: var(--white);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 30px;
         }
 
         .faq-item {
@@ -67,7 +70,7 @@
 
         .faq-trigger {
             width: 100%;
-            padding: 22px 30px;
+            padding: 20px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -75,7 +78,6 @@
             border: none;
             cursor: pointer;
             text-align: left;
-            outline: none;
             transition: background 0.2s;
         }
 
@@ -84,23 +86,22 @@
         }
 
         .faq-question {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--primary);
-            padding-right: 20px;
+            padding-right: 15px;
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: all 0.3s ease-in-out;
-            padding: 0 30px;
+            transition: all 0.3s ease-out;
+            padding: 0 25px;
             color: var(--text);
-            font-size: 1rem;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 1000px; /* Large enough for any answer */
+            max-height: 1500px; 
             padding-bottom: 25px;
         }
 
@@ -109,37 +110,32 @@
             height: 18px;
             transition: transform 0.3s ease;
             color: var(--text-light);
+            flex-shrink: 0;
         }
 
         .faq-item.active .chevron {
             transform: rotate(180deg);
         }
 
-        /* Badges */
+        .highlight-box {
+            background: #f1f5f9;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+
         .badge {
-            display: inline-block;
+            font-size: 0.75rem;
             padding: 2px 8px;
             border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+            font-weight: bold;
         }
         .badge-rural { background: #e6fffa; color: #2c7a7b; }
         .badge-hua { background: #ebf8ff; color: #2b6cb0; }
 
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            padding-bottom: 40px;
-        }
-
         @media (max-width: 600px) {
-            .header h1 { font-size: 1.8rem; }
-            .faq-trigger { padding: 18px 20px; }
-            .faq-answer { padding: 0 20px; }
+            .faq-trigger { padding: 15px; }
         }
     </style>
 </head>
@@ -147,18 +143,19 @@
 
 <div class="container">
     <div class="header">
-        <h1>EB-5 Writ of Mandamus FAQ</h1>
-        <p>Insights on processing timelines, Pro-Se strategies, and legal trends as of early 2026.</p>
+        <h1>EB-5 Writ of Mandamus (WoM) FAQ</h1>
+        <p>A detailed guide on litigation, timelines, and the Pro-Se movement.</p>
     </div>
 
+    <div class="section-title">General Foundations</div>
     <div class="faq-section">
         <div class="faq-item">
             <button class="faq-trigger">
-                <span class="faq-question">What is a Writ of Mandamus (WoM)?</span>
+                <span class="faq-question">What is Writ of Mandamus (WoM)?</span>
                 <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                It is a lawsuit filed against the US government (specifically USCIS) in a Federal court to force them to take action on your application. It compels the agency to fulfill its legal duty to adjudicate.
+                It is a lawsuit filed against the US government in a Federal court to force them to take action on your application. The US government or the agency in question here is USCIS.
             </div>
         </div>
 
@@ -168,95 +165,34 @@
                 <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                No. It only forces USCIS to make a decision. That outcome could be an <strong>approval, denial, RFE (Request for Evidence), or NOID (Notice of Intent to Deny)</strong>. It gets you an answer, not a specific result.
+                No it doesn't. It is only asking USCIS to adjudicate your application. That may mean approval, denial, RFEs, NOIDs - all the regular possible outcomes with a case.
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-trigger">
-                <span class="faq-question">When can I file a WoM? (Latest 2026 Trends)</span>
+                <span class="faq-question">Can my WoM get rejected?</span>
                 <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                The basis is "unreasonable delay." While attorneys were conservative in the past (waiting 9-12 months), trends shifted in late 2025. 
-                <br><br>
-                <strong>Current Guideline:</strong>
-                <br>• <span class="badge badge-rural">Rural</span>: Aggressive (120 days), Reasonable (180 days).
-                <br>• <span class="badge badge-hua">HUA</span>: Aggressive (180 days), Reasonable (240 days).
+                Yes it can. It can be asked to be dismissed by USCIS and the court can agree to it. That doesn't mean your petitions with USCIS will be denied. These two are unconnected.
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-trigger">
-                <span class="faq-question">What is "Pro-Se" and why consider it?</span>
+                <span class="faq-question">Can USCIS retaliate if I file a WoM?</span>
                 <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                "Pro-se" means representing yourself without an attorney. 
-                <br><br>
-                <strong>Advantages:</strong>
-                <br>• <strong>Cost:</strong> Court fees are ~$405 vs. $8k-$12k for a solo attorney.
-                <br>• <strong>Control:</strong> You manage the interaction with opposing counsel directly. 
-                <br>• <strong>Efficiency:</strong> In 2025/2026, many pro-se filers found success with aggressive timelines (some as early as 110 days).
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">Can USCIS retaliate if I sue them?</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-answer">
-                Legally, they cannot. Historically, there is no evidence of retaliation. The agency has no benefit in retaliating, as the legal consequences for them would be severe.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">What is the "Motion to Dismiss with Prejudice" risk?</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-answer">
-                This is a key risk for early 2026. If a case is dismissed <strong>with prejudice</strong>, it means the court has closed it permanently and you cannot refile for that same relief. While rare, this is why extremely aggressive filing requires careful consideration.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">Does size matter? (Solo vs. Group WoM)</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-answer">
-                Observations suggest the following effectiveness hierarchy (from most to least effective):
-                <ol>
-                    <li><strong>Solo:</strong> Most tailored and direct.</li>
-                    <li><strong>Small groups:</strong> (2 to 3 people).</li>
-                    <li><strong>Big groups:</strong> (4 or more).</li>
-                </ol>
+                By law it can't and I have never heard of USCIS retaliating historically. The consequences of retaliation can be far reaching for the agency and common sense dictates retaliation has no benefits for the agency.
             </div>
         </div>
     </div>
 
-    <div class="footer">
-        <p>Information current as of January 2026. This content is for educational purposes and does not constitute legal advice.</p>
-    </div>
-</div>
-
-<script>
-    document.querySelectorAll('.faq-trigger').forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const parent = trigger.parentNode;
-            
-            // Close other items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                if (item !== parent) item.classList.remove('active');
-            });
-
-            // Toggle current item
-            parent.classList.toggle('active');
-        });
-    });
-</script>
-
-</body>
-</html>
+    <div class="section-title">Timelines & Strategy</div>
+    <div class="faq-section">
+        <div class="faq-item">
+            <button class="faq-trigger">
+                <span class="faq-question">When can I file a WoM?</span>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24
