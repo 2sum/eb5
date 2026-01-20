@@ -12,8 +12,8 @@
             --white: #ffffff;
             --border: #e2e8f0;
             --text: #2d3748;
-            --text-light: #718096;
-            --success: #38a169;
+            --text-light: #4a5568;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -26,7 +26,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -37,40 +37,39 @@
 
         .header h1 {
             color: var(--primary);
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 10px;
+            letter-spacing: -0.02em;
         }
 
-        .section-title {
+        .header p {
             color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .section-header {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            margin: 40px 0 15px 10px;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
+            letter-spacing: 0.1em;
+            margin: 40px 0 15px 0;
         }
 
-        .faq-section {
+        .faq-card {
             background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
             overflow: hidden;
-            margin-bottom: 30px;
         }
 
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-trigger {
+        .faq-question {
             width: 100%;
-            padding: 20px 25px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -78,64 +77,59 @@
             border: none;
             cursor: pointer;
             text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
             transition: background 0.2s;
         }
 
-        .faq-trigger:hover {
-            background-color: #fcfcfd;
-        }
-
-        .faq-question {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--primary);
-            padding-right: 15px;
+        .faq-question:hover {
+            background-color: #f1f5f9;
         }
 
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-out;
-            padding: 0 25px;
+            display: none; /* Controlled by JS */
+            padding: 0 20px 20px 20px;
             color: var(--text);
+            border-top: 1px solid #edf2f7;
+            background-color: #fdfdfd;
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 1500px; 
-            padding-bottom: 25px;
+        .faq-answer p { margin: 15px 0; }
+
+        .faq-answer ul, .faq-answer ol {
+            padding-left: 20px;
         }
 
         .chevron {
-            width: 18px;
-            height: 18px;
-            transition: transform 0.3s ease;
-            color: var(--text-light);
-            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
         }
 
-        .faq-item.active .chevron {
+        .faq-card.active .chevron {
             transform: rotate(180deg);
         }
 
-        .highlight-box {
-            background: #f1f5f9;
-            padding: 15px;
-            border-left: 4px solid var(--accent);
+        .faq-card.active .faq-answer {
+            display: block;
+        }
+
+        .highlight {
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            padding: 10px 15px;
             margin: 10px 0;
-            font-size: 0.95rem;
+            font-style: italic;
         }
 
-        .badge {
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .badge-rural { background: #e6fffa; color: #2c7a7b; }
-        .badge-hua { background: #ebf8ff; color: #2b6cb0; }
-
-        @media (max-width: 600px) {
-            .faq-trigger { padding: 15px; }
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
         }
     </style>
 </head>
@@ -147,52 +141,222 @@
         <p>A detailed guide on litigation, timelines, and the Pro-Se movement.</p>
     </div>
 
-    <div class="section-title">General Foundations</div>
-    <div class="faq-section">
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">What is Writ of Mandamus (WoM)?</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-answer">
-                It is a lawsuit filed against the US government in a Federal court to force them to take action on your application. The US government or the agency in question here is USCIS.
-            </div>
-        </div>
+    <div class="section-header">The Basics</div>
 
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">Does filing a WoM guarantee an approval?</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-answer">
-                No it doesn't. It is only asking USCIS to adjudicate your application. That may mean approval, denial, RFEs, NOIDs - all the regular possible outcomes with a case.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">Can my WoM get rejected?</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-answer">
-                Yes it can. It can be asked to be dismissed by USCIS and the court can agree to it. That doesn't mean your petitions with USCIS will be denied. These two are unconnected.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">Can USCIS retaliate if I file a WoM?</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-answer">
-                By law it can't and I have never heard of USCIS retaliating historically. The consequences of retaliation can be far reaching for the agency and common sense dictates retaliation has no benefits for the agency.
-            </div>
+    <div class="faq-card">
+        <button class="faq-question">
+            What is Writ of Mandamus (WoM)?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>It is a lawsuit filed against the US government in a Federal court to force them to take action on your application. The US government or the agency in question here is USCIS.</p>
         </div>
     </div>
 
-    <div class="section-title">Timelines & Strategy</div>
-    <div class="faq-section">
-        <div class="faq-item">
-            <button class="faq-trigger">
-                <span class="faq-question">When can I file a WoM?</span>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24
+    <div class="faq-card">
+        <button class="faq-question">
+            Does filing a WoM guarantee an approval?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>No it doesn't. It is only asking USCIS to adjudicate your application. That may mean approval, denial, RFEs, NOIDs - all the regular possible outcomes with a case.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            Can my WoM get rejected?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>Yes it can. It can be asked to be dismissed by USCIS and the court can agree to it. That doesn't mean your petitions with USCIS will be denied. These two are unconnected.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            Can USCIS retaliate if I file a WoM?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>By law it can't and I have never heard of USCIS retaliating historically. The consequences of retaliation can be far reaching for the agency and common sense dictates retaliation has no benefits for the agency.</p>
+        </div>
+    </div>
+
+    <div class="section-header">Timelines & Law</div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            When can I file a WoM?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>The core basis of WoM is unreasonable delay. For EB5 application there has been an unwritten guideline that folks follow depending on their risk profile and this keeps changing with the times.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            What are some other basis for filing WoM?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>The law (RIA) has put some expectations for processing timelines for 526 applications. It expects TEA applications to be processed within 120 days. TEA includes both Rural and Urban.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            How about 485?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>There are no guidelines baked into the law for 485. There are some general APA guidelines which state that a reasonable time-frame for 485 to be processed is 181 days.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            All that is good. When should I file mine?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>Vast majority of attorneys recommend filing after a minimum of 6 months. Until middle of 2025, attorneys were VERY conservative (8-12 months).</p>
+            <p>This changed around July 2025 (Q4 FY2025) when folks filed pro-se WoMs with aggressive timelines. One successful case was filed at just 110 days.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            Give me a specific number for filing.
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>Current (late 2025/early 2026) guidelines for pro-se:</p>
+            <ul>
+                <li><strong>Rural:</strong> Aggressive 120 days, reasonable 180 days</li>
+                <li><strong>HUA:</strong> Aggressive 180 days, reasonable 240 days</li>
+            </ul>
+            <p><em>Note: Recommended wait is higher for HUA likely because the law mentions priority for rural but not explicitly for HUA, impacting human psychology/reasonableness.</em></p>
+        </div>
+    </div>
+
+    <div class="section-header">Pro-Se Filing</div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            What is pro-se?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>Pro-se means representing yourself without an attorney. "Pro-se WoM" means filing the lawsuit by yourself.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            Why consider filing pro-se?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>Primary reasons include cost and control. You manage the case and interactions with opposing counsel directly.</p>
+            <p>However, it comes at the expense of your time. If you prefer "peace of mind," a professional might be better as pro-se requires you to stay "plugged in."</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            How much does it cost to file a WoM?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <ul>
+                <li><strong>Pro-se:</strong> $405 court fees + mailing. Inexpensive help (Fiverr $70-$500 or Aninda ~$500). <em>Note: Read on UPL before seeking non-attorney help.</em></li>
+                <li><strong>Attorney Groups:</strong> $3k to $3.5k.</li>
+                <li><strong>Attorney Solo:</strong> $8k to $12k.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-header">Group vs Solo & Attorney Roles</div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            Solo vs. Group WoM effectiveness?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>Effectiveness hierarchy (1 is most effective):</p>
+            <ol>
+                <li>Solo</li>
+                <li>Small groups (2 to 3)</li>
+                <li>Big groups (4 or more)</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            What is my filing attorney's role?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>WoM is a different expertise. If you ask Anahita, she will refer to Matt Galati. If you are with KLDP, Niral may offer services. There is <strong>close to zero advantage</strong> in using your filing attorney for a WoM; they are separate legal matters.</p>
+            <p>You do not necessarily need to inform your filing attorney of a WoM. If you get an RFE, their responsibility to respond remains the same regardless of the lawsuit.</p>
+        </div>
+    </div>
+
+    <div class="section-header">Advanced Scenarios (2026 Trends)</div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            What if my 526 is approved but 485 is pending?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>In Q4 2025, 526 approvals shrunk to 4 months. Many found themselves with 526 approved but 485 stuck. Pro-se filers successfully filed "485-only" cases at the 4-5 month mark. Best strategy: Plan to file 485+526 together, but if 526 clears, switch to 485-only.</p>
+        </div>
+    </div>
+
+    <div class="faq-card">
+        <button class="faq-question">
+            What about Retrogression and MTD Risks?
+            <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+            <p>If retrogression hits, you lose the window to file a WoM. However, filing too early risks a <strong>Motion to Dismiss (MTD) with prejudice</strong>. If dismissed with prejudice, you'll have a tough time filing again for the same relief. Balancing this risk is the toughest part of the strategy.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Current as of January 2026. This content is for educational purposes only.</p>
+    </div>
+</div>
+
+<script>
+    // Ensure the script runs after the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        const questions = document.querySelectorAll('.faq-question');
+        
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const card = question.parentElement;
+                
+                // Toggle active class
+                card.classList.toggle('active');
+                
+                // Optional: Close other cards when one is opened
+                /*
+                document.querySelectorAll('.faq-card').forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove('active');
+                    }
+                });
+                */
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
